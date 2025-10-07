@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dog Image Gallery',
+      title: 'Dog Image Gallery by Noah',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -369,7 +369,7 @@ class _DogImageScreenState extends State<DogImageScreen> {
           ),
           const SizedBox(height: 16),
           Text(
-            '🐕 Woof! Here\'s your dog!',
+            'Woof! Here\'s your dog!',
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ],
