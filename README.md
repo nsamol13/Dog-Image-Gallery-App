@@ -94,6 +94,3 @@ How it's handled:
 # Dependencies
 - `http: ^1.1.0` - For making HTTP requests
 - `flutter/material.dart` - Material Design widgets
-
-# Loom Demo
-[Include your Loom video link here]
