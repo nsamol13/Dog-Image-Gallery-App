@@ -160,7 +160,7 @@ class _DogImageScreenState extends State<DogImageScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Dog Image Gallery'),
+        title: const Text('Dog Image Gallery by Noah'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -336,40 +336,49 @@ class _DogImageScreenState extends State<DogImageScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              _currentDogImage!.imageUrl,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                        : null,
-                  ),
-                );
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  height: 300,
-                  color: Colors.grey.shade300,
-                  child: const Center(
-                    child: Icon(
-                      Icons.broken_image,
-                      size: 64,
-                      color: Colors.grey,
+          Container(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height * 0.6,
+              maxWidth: MediaQuery.of(context).size.width * 0.9,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(
+                _currentDogImage!.imageUrl,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return SizedBox(
+                    height: 300,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes!
+                            : null,
+                      ),
                     ),
-                  ),
-                );
-              },
-              fit: BoxFit.contain,
+                  );
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    height: 300,
+                    color: Colors.grey.shade300,
+                    child: const Center(
+                      child: Icon(
+                        Icons.broken_image,
+                        size: 64,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  );
+                },
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           const SizedBox(height: 16),
           Text(
-            'Woof! Here\'s your dog!',
+            '🐕 Woof! Here\'s your dog!',
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ],
