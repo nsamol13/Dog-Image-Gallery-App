@@ -33,7 +33,7 @@ Dog CEO API - https://dog.ceo/dog-api/
 # Steps
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/nsamol13/Dog-Image-Gallery-App.git
    cd dog_image_app
    ```
 2. **Install dependencies**
@@ -62,7 +62,7 @@ The app provides multiple ways to fetch/refresh data:
 # Edge Cases and How They are Handled
 
 # 1. Network Timeout
-Scenario: Slow or unstable internet connection causing request delays
+Scenario 1: Slow or unstable internet connection causing request delays
 How it's handled:
 - All API requests have a 10-second timeout
 - If timeout occurs, user sees clear error message: "Request timed out. Please check your internet connection."
@@ -70,14 +70,14 @@ How it's handled:
 - Prevents app from hanging indefinitely
 
 # 2. Invalid Breed Search
-Scenario: API returns 404 for an invalid or non-existent breed
+Scenario 2: API returns 404 for an invalid or non-existent breed
 How it's handled:
 - Error state displays: "Breed not found: {breed_name}"
 - User can retry with a different breed via breed selector
 - App remains stable and functional
 
 # 3. Network Unavailable
-Scenario: No internet connection at all
+Scenario 3: No internet connection at all
 How it's handled:
 - Catches connection exceptions
 - Displays user-friendly error message
@@ -85,12 +85,8 @@ How it's handled:
 - No app crashes
 
 # 4. Image Loading Failure
-Scenario: Image URL is valid but image fails to load
+Scenario 4: Image URL is valid but image fails to load
 How it's handled:
 - Shows broken image icon placeholder
 - App continues to function
 - User can fetch a new image to try again
-
-# Dependencies
-- `http: ^1.1.0` - For making HTTP requests
-- `flutter/material.dart` - Material Design widgets
